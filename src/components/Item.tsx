@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
-import { ItemsContext } from "@/app/page";
+import { ItemsContext } from "@/context/ItemContext";
 
 export const Item = () => {
 

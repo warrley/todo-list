@@ -1,19 +1,15 @@
 "use client"
 
 import { Form } from "@/components/Form";
-import { ContextItems } from "@/types/ContextItem";
+import { useState } from "react";
 import { List } from "@/types/List";
-import { createContext, useState } from "react";
-
-export const ItemsContext = createContext<ContextItems | null>(null)
+import { ItemsContext } from "@/context/ItemContext";
 
 export default function Home() {
   const [items, setItems] = useState<List[]>([
       {id: 1, title: "example 1", checked: false},
       {id: 2, title: "example 2", checked: false}
   ])
-
-  
 
 
   return (

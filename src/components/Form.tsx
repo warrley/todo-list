@@ -1,21 +1,20 @@
 import { useContext, useState } from "react"
 import { Item } from "./Item"
-import { createContext } from "vm"
-import { ItemsContext } from "@/app/page"
+import { ItemsContext } from "@/context/ItemContext"
 
-export const Items = createContext()
 
 export const Form = () => {
     const ItemsCtx = useContext(ItemsContext);
     const [title, setTitle] = useState('');
 
     const handleAdd = () => {
+        title.length > 0 && 
         ItemsCtx?.setItems([
             ...ItemsCtx.items,
             {id: (ItemsCtx.items.length + 1 ), title: title, checked: false}
         ]);
         setTitle('');
-    }
+    };
 
     return(
         <div className="gap-8 w-2/4 ring-2 ring-sky-500/90 bg-blue-900 rounded-lg flex items-center justify-center flex-col p-8 shadow-md shadow-sky-500/80">
