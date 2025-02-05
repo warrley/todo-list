@@ -1,6 +1,7 @@
-import { List } from "./List"
+import { List } from "./List";
+import { Dispatch, SetStateAction } from "react";
 
 export type ContextItems = {
     items: List[];
-    setItems: (a: List[]) => void
+    setItems: Dispatch<SetStateAction<List[]>>; // Tipagem correta
 }
