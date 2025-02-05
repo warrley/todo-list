@@ -1,9 +1,7 @@
 import { useContext, useState } from "react"
 import { Item } from "./Item"
-import { List } from "@/types/List"
 import { createContext } from "vm"
 import { ItemsContext } from "@/app/page"
-import { setMaxListeners } from "events"
 
 export const Items = createContext()
 
