@@ -10,11 +10,19 @@ export const Item = () => {
 
     if(!ItemsCtx || !ItemsCtx?.items) return; //verifica para garantir que ItemsCtx não seja undefined
 
+    //deletar item
     const handleDelete = (id: number) => {
         const newList = ItemsCtx?.items.filter(key => key !== ItemsCtx?.items[id]);
         ItemsCtx?.setItems(newList);
     };
 
+    //toggle check
+    const handleCheck = (id: number) => {
+        ItemsCtx.setItems(
+            ItemsCtx.items.map((item, index) => index === id ? { ...item, checked: !item.checked } : item)
+        )
+    };
+    
 
     const hoverTrueDelete = (id: number) => {
         setHoverDelete(id);
@@ -35,8 +43,8 @@ export const Item = () => {
     return(
         <div className="flex flex-col gap-4 w-full text-lg lg:text-2xl">
             {ItemsCtx?.items.map(item => (
-                <div className={`${hoverDelete === item.id ? 'bg-red-600' : 'bg-sky-500'} ${hoverCheck === item.id ? 'bg-green-600' : 'bg-sky-500'} transition-all duration-200 py-2 px-3 lg:py-3 lg:px-4 rounded-md flex justify-between`}key={item.id}>
-                    <p>{item.title}</p>
+                <div className={`${hoverCheck === item.id ? 'bg-green-500' : 'bg-sky-500'} ${item.checked === true && 'bg-green-500'} ${hoverDelete === item.id ? 'bg-red-600' : 'bg-sky-500'} transition-all duration-200 py-2 px-3 lg:py-3 lg:px-4 rounded-md flex justify-between`}key={item.id}>
+                    <p className={`${item.checked && 'line-through'}`}>{item.title}</p>
                     <div className="flex gap-4">
                         <p className="cursor-pointer" onMouseOver={() => hoverTrueCheck(item.id)} onMouseLeave={() => hoverFalseCheck()} onClick={() => handleCheck(item.id)}><FontAwesomeIcon icon={faCheck}/></p>
                         <p className="cursor-pointer" onMouseOver={() => hoverTrueDelete(item.id)} onMouseLeave={() => hoverFalseDelete()} onClick={() => handleDelete(item.id)}><FontAwesomeIcon icon={faTrashCan} /></p>
