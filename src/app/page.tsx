@@ -7,8 +7,8 @@ import { ItemsContext } from "@/context/ItemContext";
 
 export default function Home() {
   const [items, setItems] = useState<List[]>([
-      {id: 1, title: "example 1", checked: false},
-      {id: 2, title: "example 2", checked: false}
+      {id: 0, title: "example 1", checked: false},
+      {id: 1, title: "example 2", checked: false}
   ])
 
 

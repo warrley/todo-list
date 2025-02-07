@@ -12,7 +12,7 @@ export const Form = () => {
         if (title.length > 0) {
             ItemsCtx.setItems([
                 ...ItemsCtx.items,
-                { id: ItemsCtx.items.length + 1, title, checked: false }
+                { id: ItemsCtx.items.length, title, checked: false }
             ]);
             setTitle("");
         }
@@ -22,7 +22,7 @@ export const Form = () => {
         <div className="gap-4 lg:gap-8 w-5/6 lg:w-2/4 ring-2 ring-sky-500/90 bg-blue-900 rounded-lg flex items-center justify-center flex-col p-4 lg:p-8 shadow-md shadow-sky-500/80">
             <h1 className="lg:text-5xl text-3xl font-semibold">Todo List</h1>
 
-            <div className="flex  rounded-xl text-md lg:text-2xl">
+            <div className="flex rounded-xl text-md lg:text-2xl">
                 <input
                     value={title}
                     onKeyDown={(e) => {
@@ -33,7 +33,7 @@ export const Form = () => {
                     type="text"
                     className="outline-none text-blue-900 px-3 lg:p-4 flex-1 rounded-md rounded-r-none"
                 />
-                <button onClick={handleAdd} className="py-2 px-3 bg-sky-500 rounded-r-md">
+                <button onClick={handleAdd} className="py-2 px-3 bg-sky-500 rounded-r-md hover:bg-sky-400 transition-all duration-200">
                     Add Task
                 </button>
             </div>
